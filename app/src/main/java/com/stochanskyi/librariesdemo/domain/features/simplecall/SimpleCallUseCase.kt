@@ -4,13 +4,13 @@ import javax.inject.Inject
 
 private const val DELAY_DURATION = 1000L
 
-interface SampleCallUseCase {
+interface SimpleCallUseCase {
     suspend operator fun invoke(): String
 }
 
-class SampleCallUseCaseImpl @Inject constructor(
+class SimpleCallUseCaseImpl @Inject constructor(
     private val simpleCallRepository: SimpleCallRepository
-) : SampleCallUseCase {
+) : SimpleCallUseCase {
 
     override suspend operator fun invoke(): String {
         return simpleCallRepository.getSimpleStringWithDelay(DELAY_DURATION)
