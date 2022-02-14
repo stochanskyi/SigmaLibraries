@@ -8,18 +8,12 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-interface ImageLoadersBindingModule {
+interface ImageLoadersBindsModule {
 
     @Binds
     fun bindImageLoadersProvider(imageLoadersProvider: ImageLoadersProviderImpl): ImageLoadersProvider
 
     @Binds
     fun bindImageLoaderDefinitions(imageLoaderDefinitions: ImageLoaderDefinitionsImpl): ImageLoaderDefinitions
-
-//    @Binds
-//    fun bindCoilLoader(coilImageLoader: CoilImageLoader): ImageLoader
-//
-//    @Binds
-//    fun bindGlideLoader(glideImageLoader: GlideImageLoader): ImageLoader
 
 }

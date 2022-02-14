@@ -1,6 +1,7 @@
 package com.stochanskyi.librariesdemo.app.di.modules
 
 import androidx.lifecycle.ViewModel
+import com.stochanskyi.librariesdemo.app.di.annotations.ViewModelKey
 import com.stochanskyi.librariesdemo.presentaiton.imageloading.ImageLoadersViewModel
 import com.stochanskyi.librariesdemo.presentaiton.simplecall.SimpleCallViewModel
 import dagger.Binds
@@ -20,7 +21,3 @@ interface ViewModelBindsModule {
     @[IntoMap ViewModelKey(ImageLoadersViewModel::class)]
     fun bindImageLoadersViewModel(imageLoadersViewModel: ImageLoadersViewModel): ViewModel
 }
-
-@MapKey
-@Retention(AnnotationRetention.RUNTIME)
-annotation class ViewModelKey(val klass: KClass<out ViewModel>)
