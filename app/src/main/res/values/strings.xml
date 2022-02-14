@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LibrariesDemo</string>
+
+    <string name="image_loader_glide">Glide</string>
+    <string name="image_loader_coil">Coil</string>
+
 </resources>

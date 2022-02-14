@@ -5,8 +5,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.stochanskyi.librariesdemo.presentaiton.utils.imageloading.ImageLoader
 import com.stochanskyi.librariesdemo.presentaiton.utils.imageloading.params.ImageLoaderParams
+import javax.inject.Inject
 
-class GlideImageLoader : ImageLoader {
+class GlideImageLoader @Inject constructor() : ImageLoader {
 
     override fun loadImage(image: String, target: ImageView, params: ImageLoaderParams) {
 
