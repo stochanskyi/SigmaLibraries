@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.stochanskyi.librariesdemo.R
 import com.stochanskyi.librariesdemo.databinding.ActivityMainBinding
+import com.stochanskyi.librariesdemo.presentaiton.imageloading.ImageLoadersFragment
 import com.stochanskyi.librariesdemo.presentaiton.simplecall.SimpleCallFragment
 
 class MainActivity : AppCompatActivity() {
@@ -18,12 +19,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, SimpleCallFragment.newInstance())
+            .add(R.id.fragment_container, ImageLoadersFragment.newInstance())
             .commit()
     }
 
-
-    override fun onRetainCustomNonConfigurationInstance(): Any? {
-        return super.onRetainCustomNonConfigurationInstance()
-    }
 }

@@ -2,5 +2,5 @@ package com.stochanskyi.librariesdemo.app.di.modules
 
 import dagger.Module
 
-@Module(includes = [NetworkModule::class, RepositoryBindsModule::class, UseCaseBindsModule::class, ViewModelBindsModule::class, ImageLoadersModule::class])
+@Module(includes = [NetworkModule::class, RepositoryBindsModule::class, UseCaseBindsModule::class, ViewModelBindsModule::class, ImageLoadersBindingModule::class])
 class AppModule
