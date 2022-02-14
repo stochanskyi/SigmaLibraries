@@ -7,4 +7,5 @@ interface ImageLoader {
 
     fun loadImage(image: String, target: ImageView, params: ImageLoaderParams)
 
+    suspend fun loadWithTimeMeasurement(image: String, target: ImageView, params: ImageLoaderParams): Long
 }
