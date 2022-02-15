@@ -3,6 +3,7 @@ package com.stochanskyi.librariesdemo.app.di.modules
 import androidx.lifecycle.ViewModel
 import com.stochanskyi.librariesdemo.app.di.annotations.ViewModelKey
 import com.stochanskyi.librariesdemo.presentaiton.imageloading.ImageLoadersViewModel
+import com.stochanskyi.librariesdemo.presentaiton.imageloading.item.ImageLoadingTestViewModel
 import com.stochanskyi.librariesdemo.presentaiton.simplecall.SimpleCallViewModel
 import dagger.Binds
 import dagger.MapKey
@@ -20,4 +21,9 @@ interface ViewModelBindsModule {
     @Binds
     @[IntoMap ViewModelKey(ImageLoadersViewModel::class)]
     fun bindImageLoadersViewModel(imageLoadersViewModel: ImageLoadersViewModel): ViewModel
+
+
+    @Binds
+    @[IntoMap ViewModelKey(ImageLoadingTestViewModel::class)]
+    fun bindImageLoadingTestViewModel(imageLoadingTestViewModel: ImageLoadingTestViewModel): ViewModel
 }

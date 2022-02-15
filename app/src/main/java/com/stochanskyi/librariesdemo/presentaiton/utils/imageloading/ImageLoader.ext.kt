@@ -22,16 +22,28 @@ fun ImageView.loadImage(
     imageLoader.loadImage(image, this, params)
 }
 
+suspend fun ImageView.loadImageAndMeasure(
+    image: String,
+    imageLoader: ImageLoader,
+    paramsBuilder: ImageLoaderParamsBuilder.() -> Unit
+): Long {
+    val builder = ImageLoaderParamsBuilder()
+    paramsBuilder(builder)
+    val params = builder.build()
+
+    return imageLoader.loadWithTimeMeasurement(image, this, params)
+}
+
 class ImageLoaderParamsBuilder {
 
     @DrawableRes
-    val placeholderRes: Int? = null
+    var placeholderRes: Int? = null
 
     @DrawableRes
-    val fallbackRes: Int? = null
+    var fallbackRes: Int? = null
 
     @DrawableRes
-    val errorRes: Int? = null
+    var errorRes: Int? = null
 
     fun build() = ImageLoaderParams(
         placeholderRes = placeholderRes,
@@ -57,7 +69,8 @@ inline fun <T> RequestBuilder<T>.onSuccess(
             target: Target<T>?,
             isFirstResource: Boolean
         ): Boolean {
-            TODO("Not yet implemented")
+            e?.logRootCauses("Glide Failure")
+            return false
         }
 
         override fun onResourceReady(

@@ -3,6 +3,7 @@ package com.stochanskyi.librariesdemo.presentaiton.imageloading.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.RecyclerView
 import com.stochanskyi.librariesdemo.presentaiton.imageloading.item.ImageLoadingTestFragment
 import com.stochanskyi.librariesdemo.presentaiton.imageloading.models.ImageLoaderViewData
 import com.stochanskyi.librariesdemo.presentaiton.utils.viewpager2.DiffCallbackCreator
