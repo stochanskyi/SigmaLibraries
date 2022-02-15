@@ -8,8 +8,8 @@ import com.stochanskyi.librariesdemo.ext.resume
 import com.stochanskyi.librariesdemo.presentaiton.utils.imageloading.ImageLoader
 import com.stochanskyi.librariesdemo.presentaiton.utils.imageloading.onSuccess
 import com.stochanskyi.librariesdemo.presentaiton.utils.imageloading.params.ImageLoaderParams
+import kotlinx.coroutines.suspendCancellableCoroutine
 import javax.inject.Inject
-import kotlin.coroutines.suspendCoroutine
 import kotlin.system.measureTimeMillis
 
 
@@ -29,9 +29,13 @@ class CoilImageLoader @Inject constructor() : ImageLoader {
         params: ImageLoaderParams
     ): Long {
         return measureTimeMillis {
-            suspendCoroutine { continuation ->
+            suspendCancellableCoroutine { continuation ->
                 val request = createBuilder(image, target, params)
-                    .onSuccess { continuation.resume() }
+                    .onSuccess {
+                        if (continuation.isActive) {
+                            continuation.resume()
+                        }
+                    }
                     .build()
                 target.context.imageLoader.enqueue(request)
             }

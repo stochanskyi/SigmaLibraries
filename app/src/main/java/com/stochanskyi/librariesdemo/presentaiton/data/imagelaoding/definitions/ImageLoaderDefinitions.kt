@@ -27,14 +27,14 @@ class ImageLoaderDefinitionsImpl @Inject constructor(
 
     private val loaders: List<ImageLoaderDefinition> = listOf(
         ImageLoaderDefinition(
-            GLIDE_IMAGE_LOADER_ID,
-            R.string.image_loader_glide,
-            glideImageLoader
-        ),
-        ImageLoaderDefinition(
             COIL_IMAGE_LOADER_ID,
             R.string.image_loader_coil,
             coilImageLoader
+        ),
+        ImageLoaderDefinition(
+            GLIDE_IMAGE_LOADER_ID,
+            R.string.image_loader_glide,
+            glideImageLoader
         )
     )
 
