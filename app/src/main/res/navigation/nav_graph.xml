@@ -18,6 +18,10 @@
             android:id="@+id/action_HomeFragment_to_ImageLoadersFragment"
             app:destination="@id/fragment_image_loaders" />
 
+        <action
+            android:id="@+id/action_HomeFragment_to_ActivityRecognitionFragment"
+            app:destination="@id/fragment_activity_recognition" />
+
     </fragment>
 
     <fragment
@@ -30,4 +34,8 @@
         android:name="com.stochanskyi.librariesdemo.presentaiton.imageloading.ImageLoadersFragment"
         tools:layout="@layout/fragment_image_loaders"/>
 
+    <fragment
+        android:id="@+id/fragment_activity_recognition"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.activityrecognition.ActivityRecognitionFragment"
+        tools:layout="@layout/fragment_activity_recognition" />
 </navigation>

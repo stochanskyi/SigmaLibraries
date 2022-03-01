@@ -23,6 +23,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         imageLoadingButton.setOnClickListener {
             findNavController().navigate(R.id.fragment_image_loaders)
         }
+        activityRecognitionButton.setOnClickListener {
+            findNavController().navigate(R.id.fragment_activity_recognition)
+        }
     }
 
 }

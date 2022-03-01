@@ -6,5 +6,7 @@
     <string name="simple_call">Simple Call</string>
     <string name="image_loading">Image Loading</string>
     <string name="activity_recognition">Activity Recognition</string>
+    <string name="transition_api">Transition API</string>
+    <string name="update_api">Update API</string>
 
 </resources>
