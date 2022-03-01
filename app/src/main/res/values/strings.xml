@@ -3,5 +3,8 @@
 
     <string name="image_loader_glide">Glide</string>
     <string name="image_loader_coil">Coil</string>
+    <string name="simple_call">Simple Call</string>
+    <string name="image_loading">Image Loading</string>
+    <string name="activity_recognition">Activity Recognition</string>
 
 </resources>
