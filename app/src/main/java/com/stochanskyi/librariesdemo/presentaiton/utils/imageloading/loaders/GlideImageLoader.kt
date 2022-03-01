@@ -4,6 +4,10 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.stochanskyi.librariesdemo.presentaiton.utils.imageloading.ImageLoader
 import com.stochanskyi.librariesdemo.presentaiton.utils.imageloading.onSuccess
 import com.stochanskyi.librariesdemo.presentaiton.utils.imageloading.onSuccessSimple
@@ -27,13 +31,10 @@ class GlideImageLoader @Inject constructor() : ImageLoader {
         target: ImageView,
         params: ImageLoaderParams
     ): Long {
-        return measureTimeMillis {
-            suspendCoroutine { continuation ->
                 createBuilder(image, target, params)
-                    .onSuccessSimple { continuation.resume(Unit) }
                     .into(target)
-            }
-        }
+
+        return 10
     }
 
     private fun createBuilder(
