@@ -1,7 +1,6 @@
 package com.stochanskyi.librariesdemo.domain.features.activityrecognition
 
-import com.stochanskyi.librariesdemo.data.repository.activityrecognition.ActivityRecognitionRepository
-import com.stochanskyi.librariesdemo.data.repository.activityrecognition.models.ActivityUpdate
+import com.stochanskyi.librariesdemo.domain.features.activityrecognition.models.ActivityUpdate
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

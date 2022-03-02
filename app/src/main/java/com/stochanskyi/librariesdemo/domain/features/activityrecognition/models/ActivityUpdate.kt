@@ -1,4 +1,4 @@
-package com.stochanskyi.librariesdemo.data.repository.activityrecognition.models
+package com.stochanskyi.librariesdemo.domain.features.activityrecognition.models
 
 class ActivityUpdate(
     val userActivity: List<UserActivity>,

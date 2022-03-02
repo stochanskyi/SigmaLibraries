@@ -1,6 +1,5 @@
 package com.stochanskyi.librariesdemo.domain.features.activityrecognition
 
-import com.stochanskyi.librariesdemo.data.repository.activityrecognition.ActivityRecognitionRepository
 import javax.inject.Inject
 
 interface StopActivityUpdatesUseCase {

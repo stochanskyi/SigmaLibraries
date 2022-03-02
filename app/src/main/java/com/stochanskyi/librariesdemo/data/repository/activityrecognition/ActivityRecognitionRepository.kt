@@ -3,18 +3,13 @@ package com.stochanskyi.librariesdemo.data.repository.activityrecognition
 import com.google.android.gms.location.ActivityRecognitionResult
 import com.google.android.gms.location.DetectedActivity
 import com.stochanskyi.librariesdemo.data.activityrecognition.ActivityRecognitionDataSource
-import com.stochanskyi.librariesdemo.data.repository.activityrecognition.models.ActivityUpdate
-import com.stochanskyi.librariesdemo.data.repository.activityrecognition.models.UserActivity
-import com.stochanskyi.librariesdemo.data.repository.activityrecognition.models.type.*
+import com.stochanskyi.librariesdemo.domain.features.activityrecognition.models.ActivityUpdate
+import com.stochanskyi.librariesdemo.domain.features.activityrecognition.models.UserActivity
+import com.stochanskyi.librariesdemo.domain.features.activityrecognition.models.type.*
+import com.stochanskyi.librariesdemo.domain.features.activityrecognition.ActivityRecognitionRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
-
-
-interface ActivityRecognitionRepository {
-    fun getActivityUpdateFlow(): Flow<ActivityUpdate>
-    fun stopActivityUpdate()
-}
 
 class ActivityRecognitionRepositoryImpl @Inject constructor(
     private val activityRecognitionDataSource: ActivityRecognitionDataSource
