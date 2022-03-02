@@ -1,4 +1,4 @@
-package com.stochanskyi.librariesdemo.data.repository.activityrecognition.models.type
+package com.stochanskyi.librariesdemo.domain.features.activityrecognition.models.type
 
 interface ActivityTypeTransformer<T> {
 
