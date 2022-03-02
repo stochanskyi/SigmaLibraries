@@ -37,5 +37,16 @@
     <fragment
         android:id="@+id/fragment_activity_recognition"
         android:name="com.stochanskyi.librariesdemo.presentaiton.activityrecognition.ActivityRecognitionFragment"
-        tools:layout="@layout/fragment_activity_recognition" />
+        tools:layout="@layout/fragment_activity_recognition">
+
+        <action
+            android:id="@+id/action_ActivityRecognitionFragment_to_ActivityUpdateFragment"
+            app:destination="@id/fragment_activity_update" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_activity_update"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.ActivityUpdateFragment"
+        tools:layout="@layout/fragment_activity_update" />
+
 </navigation>
