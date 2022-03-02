@@ -4,16 +4,23 @@ import android.app.Application
 import android.content.Context
 import com.stochanskyi.librariesdemo.app.di.components.AppComponent
 import com.stochanskyi.librariesdemo.app.di.components.DaggerAppComponent
+import com.stochanskyi.librariesdemo.app.di.dependencies.AppDependencies
 
-class LibrariesDemoApp : Application() {
+class LibrariesDemoApp : Application(), AppDependencies {
 
     lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        appComponent = DaggerAppComponent.create()
+        appComponent = DaggerAppComponent
+            .builder()
+            .appDependencies(this)
+            .build()
     }
+
+    override val context: Context
+        get() = this
 }
 
 fun Context.appComponent(): AppComponent {
