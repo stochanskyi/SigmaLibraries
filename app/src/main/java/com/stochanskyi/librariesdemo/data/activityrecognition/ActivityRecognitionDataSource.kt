@@ -16,12 +16,10 @@ import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import javax.inject.Singleton
 
-private const val DEFAULT_UPDATE_TIMEOUT_MILLIS = 5000L
-
 interface ActivityRecognitionDataSource {
-    fun getActivityUpdates(timeout: Long = DEFAULT_UPDATE_TIMEOUT_MILLIS): Flow<ActivityRecognitionResult>
+    fun getActivityUpdates(): Flow<ActivityRecognitionResult>
 
-    fun stopActivityUpdates(id: Int)
+    fun stopActivityUpdates()
 }
 
 @Singleton
@@ -40,7 +38,7 @@ class ActivityRecognitionDataSourceImpl @Inject constructor(
 
     private val isRecognitionRunning = AtomicBoolean(false)
 
-    override fun getActivityUpdates(timeout: Long): Flow<ActivityRecognitionResult> {
+    override fun getActivityUpdates(): Flow<ActivityRecognitionResult> {
         if (isRecognitionRunning.compareAndSet(false, true)) {
             launchActivityUpdates()
         }
@@ -55,7 +53,7 @@ class ActivityRecognitionDataSourceImpl @Inject constructor(
             }
     }
 
-    override fun stopActivityUpdates(id: Int) {
+    override fun stopActivityUpdates() {
         if (isRecognitionRunning.compareAndSet(true, false)) {
             activityRecognitionClient.removeActivityUpdates(pendingIntent)
         }
