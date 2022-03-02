@@ -3,6 +3,7 @@ package com.stochanskyi.librariesdemo.app.di.modules
 import androidx.lifecycle.ViewModel
 import com.stochanskyi.librariesdemo.app.di.annotations.ViewModelKey
 import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.ActivityRecognitionViewModel
+import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.ActivityUpdateViewModel
 import com.stochanskyi.librariesdemo.presentaiton.imageloading.ImageLoadersViewModel
 import com.stochanskyi.librariesdemo.presentaiton.imageloading.item.ImageLoadingTestViewModel
 import com.stochanskyi.librariesdemo.presentaiton.simplecall.SimpleCallViewModel
@@ -30,4 +31,9 @@ interface ViewModelBindsModule {
     @Binds
     @[IntoMap ViewModelKey(ActivityRecognitionViewModel::class)]
     fun bindActivityRecognitionViewModel(activityRecognitionViewModel: ActivityRecognitionViewModel): ViewModel
+
+    @Binds
+    @[IntoMap ViewModelKey(ActivityUpdateViewModel::class)]
+    fun bindActivityUpdateViewModel(activityUpdateViewModel: ActivityUpdateViewModel): ViewModel
+
 }

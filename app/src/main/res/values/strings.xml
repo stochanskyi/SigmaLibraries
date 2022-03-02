@@ -9,4 +9,7 @@
     <string name="transition_api">Transition API</string>
     <string name="update_api">Update API</string>
 
+    <string name="status">Status: %1$s</string>
+    <string name="logs">Logs</string>
+
 </resources>

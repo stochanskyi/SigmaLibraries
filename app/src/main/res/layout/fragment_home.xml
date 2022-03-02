@@ -7,21 +7,21 @@
     android:layout_marginHorizontal="30dp">
 
     <Button
-        style="@style/HomeButton"
+        style="@style/Button.Home"
         android:id="@+id/simple_call_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/simple_call" />
 
     <Button
-        style="@style/HomeButton"
+        style="@style/Button.Home"
         android:id="@+id/image_loading_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/image_loading" />
 
     <Button
-        style="@style/HomeButton"
+        style="@style/Button.Home"
         android:id="@+id/activity_recognition_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
