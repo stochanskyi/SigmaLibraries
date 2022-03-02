@@ -10,6 +10,7 @@ class ViewModelFactory @Inject constructor(
     val definitions: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
 ) : ViewModelProvider.Factory {
 
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return definitions[modelClass]?.get() as T
     }
