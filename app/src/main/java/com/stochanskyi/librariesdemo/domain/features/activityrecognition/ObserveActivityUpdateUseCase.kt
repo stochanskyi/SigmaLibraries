@@ -1,18 +1,19 @@
 package com.stochanskyi.librariesdemo.domain.features.activityrecognition
 
 import com.stochanskyi.librariesdemo.domain.features.activityrecognition.models.ActivityUpdate
-import kotlinx.coroutines.flow.Flow
+import com.stochanskyi.librariesdemo.domain.features.activityrecognition.models.DisposableFlow
 import javax.inject.Inject
 
 interface ObserveActivityUpdateUseCase {
-    operator fun invoke(): Flow<ActivityUpdate>
+    suspend operator fun invoke(interval: Long): Result<DisposableFlow<ActivityUpdate>>
 }
 
 class ObserveActivityUpdateUseCaseImpl @Inject constructor(
     private val activityRecognitionRepository: ActivityRecognitionRepository
 ) : ObserveActivityUpdateUseCase {
-    override fun invoke(): Flow<ActivityUpdate> {
-        return activityRecognitionRepository.getActivityUpdateFlow()
+
+    override suspend fun invoke(interval: Long): Result<DisposableFlow<ActivityUpdate>> {
+        return activityRecognitionRepository.getActivityUpdateFlow(interval)
     }
 
 }

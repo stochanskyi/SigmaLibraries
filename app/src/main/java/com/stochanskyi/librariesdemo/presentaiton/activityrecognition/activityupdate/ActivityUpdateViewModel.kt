@@ -5,24 +5,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.stochanskyi.librariesdemo.data.activityrecognition.ActivityRecognitionDataSource
+import com.stochanskyi.librariesdemo.domain.features.activityrecognition.ObserveActivityUpdateUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ActivityUpdateViewModel @Inject constructor(
-    private val activityRecognitionDataSource: ActivityRecognitionDataSource
+    private val observeActivityUpdateUseCase: ObserveActivityUpdateUseCase
 ) : ViewModel() {
 
     private val _isServiceRunningLiveData = MutableLiveData<Boolean>()
     val isServiceRunningLiveData: LiveData<Boolean> = _isServiceRunningLiveData
 
     fun startOrStopUpdate() {
-        val flow = activityRecognitionDataSource.getActivityUpdates()
-
         viewModelScope.launch {
-            flow.collect {
-                Log.d("ActivityRecRes", it.mostProbableActivity.toString())
+            val result = observeActivityUpdateUseCase(3000)
+
+            result.getOrNull()?.collect {
+                Log.d("AC_REC_TAG", it.mostConfident.activityType.toString())
             }
         }
+
     }
 }
