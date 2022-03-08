@@ -12,4 +12,16 @@
     <string name="status">Status: %1$s</string>
     <string name="logs">Logs</string>
 
+    <string name="activity_update_event_title">Activity: %1$s</string>
+    <string name="activity_update_event_confidence">Confidence: %1$d%%</string>
+
+    <string name="activity_type_in_vehicle">In vehicle</string>
+    <string name="activity_type_on_bicycle">On bicycle</string>
+    <string name="activity_type_on_foot">On foot</string>
+    <string name="activity_type_still">Still</string>
+    <string name="activity_type_unknown">Unknown</string>
+    <string name="activity_type_tilting">Tilting</string>
+    <string name="activity_type_walking">Walking</string>
+    <string name="activity_type_running">Running</string>
+
 </resources>
