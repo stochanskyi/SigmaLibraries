@@ -10,7 +10,6 @@ import com.stochanskyi.librariesdemo.domain.features.activityrecognition.models.
 import com.stochanskyi.librariesdemo.domain.features.activityrecognition.models.DisposableFlow
 import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.transformers.ActivityTypeNameTransformer
 import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.viewdata.ActivityUpdateEventViewData
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -29,7 +28,7 @@ class ActivityUpdateViewModel @Inject constructor(
     val activityEventsLiveData: LiveData<List<ActivityUpdateEventViewData>> =
         _activityEventsLiveData
 
-    private val activityEvents: MutableList<ActivityUpdateEventViewData> = mutableListOf()
+    private var activityEvents: List<ActivityUpdateEventViewData> = listOf()
 
     private var updatesFlow: DisposableFlow<ActivityUpdate>? = null
 
@@ -75,7 +74,7 @@ class ActivityUpdateViewModel @Inject constructor(
     }
 
     private fun addNewEvent(data: ActivityUpdate) {
-        activityEvents += data.asViewData()
+        activityEvents = data.asViewData() + activityEvents
         _activityEventsLiveData.value = activityEvents
     }
 
@@ -87,4 +86,11 @@ class ActivityUpdateViewModel @Inject constructor(
             mostConfident.confidence
         )
     }
+}
+
+private operator fun <T> T.plus(list: List<T>): List<T> {
+    val result = ArrayList<T>(list.size + 1)
+    result.add(this)
+    result.addAll(list)
+    return result
 }
