@@ -21,7 +21,7 @@ class ActivityUpdateViewModel @Inject constructor(
     private val actionTypeNameTransformer: ActivityTypeNameTransformer
 ) : ViewModel() {
 
-    private val _isServiceRunningLiveData = MutableLiveData<Boolean>()
+    private val _isServiceRunningLiveData = MutableLiveData<Boolean>(false)
     val isServiceRunningLiveData: LiveData<Boolean> = _isServiceRunningLiveData
 
     private val _activityEventsLiveData = MutableLiveData<List<ActivityUpdateEventViewData>>()
@@ -51,14 +51,17 @@ class ActivityUpdateViewModel @Inject constructor(
     }
 
     private fun startUpdate() {
-        viewModelScope.launch {
+        collectingJob = viewModelScope.launch {
             val result = observeActivityUpdateUseCase(ACTIVITY_UPDATES_INTERVAL)
 
             result.onFailure {
                 return@launch
             }
 
-            result.getOrNull()?.collect {
+            _isServiceRunningLiveData.postValue(true)
+            updatesFlow = result.getOrNull()
+
+            updatesFlow?.collect {
                 addNewEvent(it)
                 Log.d("AC_REC_TAG", it.mostConfident.activityType.toString())
             }
@@ -70,6 +73,7 @@ class ActivityUpdateViewModel @Inject constructor(
         viewModelScope.launch {
             updatesFlow?.dispose()
             updatesFlow = null
+            _isServiceRunningLiveData.postValue(false)
         }
     }
 

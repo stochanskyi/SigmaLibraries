@@ -24,4 +24,7 @@
     <string name="activity_type_walking">Walking</string>
     <string name="activity_type_running">Running</string>
 
+    <string name="activity_update_start">Start updates</string>
+    <string name="activity_update_stop">Stop updates</string>
+
 </resources>
