@@ -12,6 +12,9 @@ import com.stochanskyi.librariesdemo.app.appComponent
 import com.stochanskyi.librariesdemo.databinding.FragmentActivityUpdateBinding
 import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.adapter.ActivityUpdateEventAdapter
 import com.stochanskyi.librariesdemo.presentaiton.utils.ViewModelFactory
+import com.stochanskyi.librariesdemo.utils.hasActivityRecognitionPermission
+import com.stochanskyi.librariesdemo.utils.registerPermissionLauncher
+import com.stochanskyi.librariesdemo.utils.requestActivityRecognitionPermission
 import javax.inject.Inject
 
 class ActivityUpdateFragment : Fragment(R.layout.fragment_activity_update) {
@@ -20,6 +23,12 @@ class ActivityUpdateFragment : Fragment(R.layout.fragment_activity_update) {
     lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel: ActivityUpdateViewModel by viewModels { viewModelFactory }
+
+    private val activityRecognitionPermissionLauncher = registerPermissionLauncher(
+        onGranted = {
+            viewModel.startOrStopUpdate()
+        }
+    )
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -44,8 +53,16 @@ class ActivityUpdateFragment : Fragment(R.layout.fragment_activity_update) {
         )
 
         startStopButton.setOnClickListener {
-            viewModel.startOrStopUpdate()
+            startActivityUpdates()
         }
+    }
+
+    private fun startActivityUpdates() {
+        if (hasActivityRecognitionPermission()) {
+            viewModel.startOrStopUpdate()
+            return
+        }
+        activityRecognitionPermissionLauncher.requestActivityRecognitionPermission()
     }
 
     private fun initObservers(binding: FragmentActivityUpdateBinding) {
@@ -53,9 +70,9 @@ class ActivityUpdateFragment : Fragment(R.layout.fragment_activity_update) {
             (binding.eventsRecyclerView.adapter as? ActivityUpdateEventAdapter)?.submitList(it)
         }
         viewModel.isServiceRunningLiveData.observe(viewLifecycleOwner) {
-            val buttonTextRes = if(it) {
+            val buttonTextRes = if (it) {
                 R.string.activity_update_stop
-            } else  {
+            } else {
                 R.string.activity_update_start
             }
 
