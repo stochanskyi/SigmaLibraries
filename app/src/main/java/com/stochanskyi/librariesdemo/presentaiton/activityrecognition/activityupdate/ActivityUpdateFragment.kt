@@ -52,6 +52,15 @@ class ActivityUpdateFragment : Fragment(R.layout.fragment_activity_update) {
         viewModel.activityEventsLiveData.observe(viewLifecycleOwner) {
             (binding.eventsRecyclerView.adapter as? ActivityUpdateEventAdapter)?.submitList(it)
         }
+        viewModel.isServiceRunningLiveData.observe(viewLifecycleOwner) {
+            val buttonTextRes = if(it) {
+                R.string.activity_update_stop
+            } else  {
+                R.string.activity_update_start
+            }
+
+            binding.startStopButton.text = getString(buttonTextRes)
+        }
     }
 
 }
