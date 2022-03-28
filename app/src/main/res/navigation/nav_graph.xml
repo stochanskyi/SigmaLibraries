@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_home"
-        android:name="com.stochanskyi.librariesdemo.presentaiton.home.HomeFragment"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.home.HomeFragment"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -30,17 +30,17 @@
 
     <fragment
         android:id="@+id/fragment_simple_call"
-        android:name="com.stochanskyi.librariesdemo.presentaiton.simplecall.SimpleCallFragment"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.simplecall.SimpleCallFragment"
         tools:layout="@layout/fragment_simple_call" />
 
     <fragment
         android:id="@+id/fragment_image_loaders"
-        android:name="com.stochanskyi.librariesdemo.presentaiton.imageloading.ImageLoadersFragment"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.ImageLoadersFragment"
         tools:layout="@layout/fragment_image_loaders"/>
 
     <fragment
         android:id="@+id/fragment_activity_recognition"
-        android:name="com.stochanskyi.librariesdemo.presentaiton.activityrecognition.ActivityRecognitionFragment"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.ActivityRecognitionFragment"
         tools:layout="@layout/fragment_activity_recognition">
 
         <action
@@ -50,12 +50,12 @@
 
     <fragment
         android:id="@+id/fragment_activity_update"
-        android:name="com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.ActivityUpdateFragment"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.activityupdate.ActivityUpdateFragment"
         tools:layout="@layout/fragment_activity_update" />
 
     <fragment
         android:id="@+id/fragment_work_manager_home"
-        android:name="com.stochanskyi.librariesdemo.presentaiton.workmanagerhome.WorkManagerHomeFragment"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.workmanagerhome.WorkManagerHomeFragment"
         tools:layout="@layout/fragment_work_home_manager">
 
         <action
@@ -66,7 +66,7 @@
 
     <fragment
         android:id="@+id/fragment_location_update"
-        android:name="com.stochanskyi.librariesdemo.presentaiton.locationupdate.LocationUpdateFragment"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.locationupdate.LocationUpdateFragment"
         tools:layout="@layout/fragment_location_update" />
 
 </navigation>

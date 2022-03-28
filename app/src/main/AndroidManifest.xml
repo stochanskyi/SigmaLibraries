@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LibrariesDemo.Splash">
         <activity
-            android:name=".presentaiton.main.MainActivity"
+            android:name="com.stochanskyi.librariesdemo.presentaiton.feature.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
