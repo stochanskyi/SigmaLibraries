@@ -12,9 +12,9 @@ import com.stochanskyi.librariesdemo.app.appComponent
 import com.stochanskyi.librariesdemo.databinding.FragmentActivityUpdateBinding
 import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.activityupdate.adapter.ActivityUpdateEventAdapter
 import com.stochanskyi.librariesdemo.presentaiton.utils.ViewModelFactory
-import com.stochanskyi.librariesdemo.utils.hasActivityRecognitionPermission
-import com.stochanskyi.librariesdemo.utils.registerPermissionLauncher
-import com.stochanskyi.librariesdemo.utils.requestActivityRecognitionPermission
+import com.stochanskyi.librariesdemo.presentaiton.utils.hasActivityRecognitionPermission
+import com.stochanskyi.librariesdemo.presentaiton.utils.registerPermissionLauncher
+import com.stochanskyi.librariesdemo.presentaiton.utils.requestActivityRecognitionPermission
 import javax.inject.Inject
 
 class ActivityUpdateFragment : Fragment(R.layout.fragment_activity_update) {
