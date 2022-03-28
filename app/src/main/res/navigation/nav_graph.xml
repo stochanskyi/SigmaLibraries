@@ -22,6 +22,10 @@
             android:id="@+id/action_HomeFragment_to_ActivityRecognitionFragment"
             app:destination="@id/fragment_activity_recognition" />
 
+        <action
+            android:id="@+id/action_HomeFragment_to_WorkManagerHomeFragment"
+            app:destination="@id/fragment_work_manager_home" />
+
     </fragment>
 
     <fragment
@@ -48,5 +52,21 @@
         android:id="@+id/fragment_activity_update"
         android:name="com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.ActivityUpdateFragment"
         tools:layout="@layout/fragment_activity_update" />
+
+    <fragment
+        android:id="@+id/fragment_work_manager_home"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.workmanagerhome.WorkManagerHomeFragment"
+        tools:layout="@layout/fragment_work_home_manager">
+
+        <action
+            android:id="@+id/action_WorkManagerHomeFragment_to_LocationUpdateFragment"
+            app:destination="@id/fragment_location_update" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_location_update"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.locationupdate.LocationUpdateFragment"
+        tools:layout="@layout/fragment_location_update" />
 
 </navigation>

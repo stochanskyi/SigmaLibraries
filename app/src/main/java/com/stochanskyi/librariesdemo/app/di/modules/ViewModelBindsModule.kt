@@ -6,6 +6,7 @@ import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.ActivityRe
 import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.ActivityUpdateViewModel
 import com.stochanskyi.librariesdemo.presentaiton.imageloading.ImageLoadersViewModel
 import com.stochanskyi.librariesdemo.presentaiton.imageloading.item.ImageLoadingTestViewModel
+import com.stochanskyi.librariesdemo.presentaiton.locationupdate.LocationUpdateViewModel
 import com.stochanskyi.librariesdemo.presentaiton.simplecall.SimpleCallViewModel
 import dagger.Binds
 import dagger.MapKey
@@ -35,5 +36,9 @@ interface ViewModelBindsModule {
     @Binds
     @[IntoMap ViewModelKey(ActivityUpdateViewModel::class)]
     fun bindActivityUpdateViewModel(activityUpdateViewModel: ActivityUpdateViewModel): ViewModel
+
+    @Binds
+    @[IntoMap ViewModelKey(LocationUpdateViewModel::class)]
+    fun binLocationUpdateViewModel(locationUpdateViewModel: LocationUpdateViewModel): ViewModel
 
 }

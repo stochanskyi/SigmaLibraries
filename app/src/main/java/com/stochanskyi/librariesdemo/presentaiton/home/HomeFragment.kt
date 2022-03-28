@@ -2,6 +2,7 @@ package com.stochanskyi.librariesdemo.presentaiton.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.stochanskyi.librariesdemo.R
@@ -18,14 +19,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun initListeners(binding: FragmentHomeBinding) = with(binding) {
         simpleCallButton.setOnClickListener {
-            findNavController().navigate(R.id.fragment_simple_call)
+            navigateToAction(R.id.fragment_simple_call)
         }
         imageLoadingButton.setOnClickListener {
-            findNavController().navigate(R.id.fragment_image_loaders)
+            navigateToAction(R.id.fragment_image_loaders)
         }
         activityRecognitionButton.setOnClickListener {
-            findNavController().navigate(R.id.fragment_activity_recognition)
+            navigateToAction(R.id.fragment_activity_recognition)
         }
+        workManagerButton.setOnClickListener { 
+            navigateToAction(R.id.fragment_work_manager_home)
+        }
+    }
+    
+    private fun navigateToAction(@IdRes action: Int) {
+        findNavController().navigate(action)
     }
 
 }

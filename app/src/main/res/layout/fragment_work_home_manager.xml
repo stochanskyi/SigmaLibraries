@@ -6,32 +6,33 @@
     android:gravity="center"
     android:layout_marginHorizontal="30dp">
 
-    <Button
-        style="@style/Button.Home"
-        android:id="@+id/simple_call_button"
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/simple_call" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <Button
         style="@style/Button.Home"
-        android:id="@+id/image_loading_button"
+        android:id="@+id/location_update_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/image_loading" />
+        android:text="Location Update (Long Running Job()" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <Button
         style="@style/Button.Home"
-        android:id="@+id/activity_recognition_button"
+        android:id="@+id/todo_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/activity_recognition" />
+        android:text=""/>
 
-    <Button
-        style="@style/Button.Home"
-        android:id="@+id/work_manager_button"
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/work_manager" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>
