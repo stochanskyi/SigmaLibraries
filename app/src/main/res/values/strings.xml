@@ -26,5 +26,6 @@
 
     <string name="activity_update_start">Start updates</string>
     <string name="activity_update_stop">Stop updates</string>
+    <string name="work_manager">Work Manager</string>
 
 </resources>
