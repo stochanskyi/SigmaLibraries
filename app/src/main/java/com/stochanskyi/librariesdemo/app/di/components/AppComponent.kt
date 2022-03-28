@@ -3,12 +3,12 @@ package com.stochanskyi.librariesdemo.app.di.components
 import com.stochanskyi.librariesdemo.app.di.dependencies.AppDependencies
 import com.stochanskyi.librariesdemo.app.di.modules.AppModule
 import com.stochanskyi.librariesdemo.data.activityrecognition.ActivityUpdateReceiver
-import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.ActivityRecognitionFragment
-import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.ActivityUpdateFragment
-import com.stochanskyi.librariesdemo.presentaiton.imageloading.ImageLoadersFragment
-import com.stochanskyi.librariesdemo.presentaiton.imageloading.item.ImageLoadingTestFragment
-import com.stochanskyi.librariesdemo.presentaiton.locationupdate.LocationUpdateFragment
-import com.stochanskyi.librariesdemo.presentaiton.simplecall.SimpleCallFragment
+import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.ActivityRecognitionFragment
+import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.activityupdate.ActivityUpdateFragment
+import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.ImageLoadersFragment
+import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.item.ImageLoadingTestFragment
+import com.stochanskyi.librariesdemo.presentaiton.feature.locationupdate.LocationUpdateFragment
+import com.stochanskyi.librariesdemo.presentaiton.feature.simplecall.SimpleCallFragment
 import dagger.Component
 import javax.inject.Singleton
 

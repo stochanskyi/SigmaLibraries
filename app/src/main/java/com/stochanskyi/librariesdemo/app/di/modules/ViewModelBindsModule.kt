@@ -2,17 +2,15 @@ package com.stochanskyi.librariesdemo.app.di.modules
 
 import androidx.lifecycle.ViewModel
 import com.stochanskyi.librariesdemo.app.di.annotations.ViewModelKey
-import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.ActivityRecognitionViewModel
-import com.stochanskyi.librariesdemo.presentaiton.activityrecognition.activityupdate.ActivityUpdateViewModel
-import com.stochanskyi.librariesdemo.presentaiton.imageloading.ImageLoadersViewModel
-import com.stochanskyi.librariesdemo.presentaiton.imageloading.item.ImageLoadingTestViewModel
-import com.stochanskyi.librariesdemo.presentaiton.locationupdate.LocationUpdateViewModel
-import com.stochanskyi.librariesdemo.presentaiton.simplecall.SimpleCallViewModel
+import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.ActivityRecognitionViewModel
+import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.activityupdate.ActivityUpdateViewModel
+import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.ImageLoadersViewModel
+import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.item.ImageLoadingTestViewModel
+import com.stochanskyi.librariesdemo.presentaiton.feature.locationupdate.LocationUpdateViewModel
+import com.stochanskyi.librariesdemo.presentaiton.feature.simplecall.SimpleCallViewModel
 import dagger.Binds
-import dagger.MapKey
 import dagger.Module
 import dagger.multibindings.IntoMap
-import kotlin.reflect.KClass
 
 @Module
 interface ViewModelBindsModule {
