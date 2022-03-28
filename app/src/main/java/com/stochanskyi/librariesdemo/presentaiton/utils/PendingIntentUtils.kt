@@ -1,4 +1,4 @@
-package com.stochanskyi.librariesdemo.utils
+package com.stochanskyi.librariesdemo.presentaiton.utils
 
 import android.app.PendingIntent
 import android.os.Build

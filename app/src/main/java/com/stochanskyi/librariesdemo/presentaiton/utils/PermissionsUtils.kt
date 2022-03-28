@@ -1,4 +1,4 @@
-package com.stochanskyi.librariesdemo.utils
+package com.stochanskyi.librariesdemo.presentaiton.utils
 
 import android.Manifest
 import android.content.pm.PackageManager

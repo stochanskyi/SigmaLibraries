@@ -7,7 +7,7 @@ import com.google.android.gms.location.ActivityRecognitionClient
 import com.google.android.gms.location.ActivityRecognitionResult
 import com.stochanskyi.librariesdemo.data.activityrecognition.exceptions.ActivityRecognitionLaunchFailedException
 import com.stochanskyi.librariesdemo.data.activityrecognition.models.ActivityUpdatesRequestData
-import com.stochanskyi.librariesdemo.utils.intentMutableFlag
+import com.stochanskyi.librariesdemo.presentaiton.utils.intentMutableFlag
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.SupervisorJob
