@@ -1,6 +1,7 @@
 package com.stochanskyi.librariesdemo.app.di.modules
 
 import android.content.Context
+import androidx.work.WorkManager
 import com.google.android.gms.location.*
 import com.stochanskyi.librariesdemo.data.location.LocationDataSource
 import com.stochanskyi.librariesdemo.data.location.LocationDataSourceImpl
@@ -28,4 +29,7 @@ class DataModule {
             LocationRequest.PRIORITY_HIGH_ACCURACY
         )
     }
+
+    @Provides
+    fun provideWorkManager(context: Context): WorkManager = WorkManager.getInstance(context)
 }

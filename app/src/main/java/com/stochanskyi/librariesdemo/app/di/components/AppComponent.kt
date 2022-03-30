@@ -8,6 +8,7 @@ import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.ac
 import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.ImageLoadersFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.item.ImageLoadingTestFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.locationupdate.LocationUpdateFragment
+import com.stochanskyi.librariesdemo.presentaiton.feature.locationupdate.jobs.UpdateLocationWorker
 import com.stochanskyi.librariesdemo.presentaiton.feature.simplecall.SimpleCallFragment
 import dagger.Component
 import javax.inject.Singleton
@@ -24,6 +25,8 @@ interface AppComponent {
     fun inject(fragment: LocationUpdateFragment)
 
     fun inject(receiver: ActivityUpdateReceiver)
+
+    fun inject(worker: UpdateLocationWorker)
 
     @Component.Builder
     interface Builder {

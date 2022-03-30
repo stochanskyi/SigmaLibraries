@@ -28,4 +28,6 @@
     <string name="activity_update_stop">Stop updates</string>
     <string name="work_manager">Work Manager</string>
 
+    <string name="long_lat_format">Long: %1$f Lat: %2$f</string>
+
 </resources>
