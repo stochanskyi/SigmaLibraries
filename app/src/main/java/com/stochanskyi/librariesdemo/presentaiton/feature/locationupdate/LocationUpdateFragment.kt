@@ -26,6 +26,22 @@ class LocationUpdateFragment: Fragment(R.layout.fragment_location_update) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         FragmentLocationUpdateBinding.bind(view).run {
             initListeners(this)
+            initObservers(this)
+        }
+    }
+
+    private fun initObservers(binding: FragmentLocationUpdateBinding) {
+        viewModel.locationLiveData.observe(viewLifecycleOwner) {
+            binding.currentLocationTextView.text =
+                getString(R.string.long_lat_format, it.long, it.lat)
+        }
+        viewModel.isUpdatingRunningLiveData.observe(viewLifecycleOwner) {
+            val buttonTextRes = if (it) {
+                R.string.activity_update_stop
+            } else {
+                R.string.activity_update_start
+            }
+            binding.startStopButton.text = getString(buttonTextRes)
         }
     }
 
