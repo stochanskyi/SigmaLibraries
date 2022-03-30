@@ -8,7 +8,6 @@ import androidx.fragment.app.viewModels
 import com.stochanskyi.librariesdemo.R
 import com.stochanskyi.librariesdemo.app.appComponent
 import com.stochanskyi.librariesdemo.databinding.FragmentLocationUpdateBinding
-import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.activityupdate.ActivityUpdateViewModel
 import com.stochanskyi.librariesdemo.presentaiton.utils.ViewModelFactory
 import javax.inject.Inject
 
@@ -17,7 +16,7 @@ class LocationUpdateFragment: Fragment(R.layout.fragment_location_update) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel: ActivityUpdateViewModel by viewModels { viewModelFactory }
+    private val viewModel: LocationUpdateViewModel by viewModels { viewModelFactory }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -31,6 +30,6 @@ class LocationUpdateFragment: Fragment(R.layout.fragment_location_update) {
     }
 
     private fun initListeners(binding: FragmentLocationUpdateBinding) = with(binding) {
-        startStopButton.setOnClickListener { viewModel.startOrStopUpdate() }
+        startStopButton.setOnClickListener { viewModel.startOrStopUpdates() }
     }
 }
