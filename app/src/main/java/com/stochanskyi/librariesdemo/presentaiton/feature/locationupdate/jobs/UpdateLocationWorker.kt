@@ -8,6 +8,7 @@ import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
+import androidx.work.workDataOf
 import com.stochanskyi.librariesdemo.R
 import com.stochanskyi.librariesdemo.app.appComponent
 import com.stochanskyi.librariesdemo.domain.features.location.GetCurrentLocationUseCase
@@ -18,6 +19,11 @@ class UpdateLocationWorker(
     appContext: Context,
     params: WorkerParameters
 ) : CoroutineWorker(appContext, params) {
+
+    companion object {
+        const val LAT_PROGRESS_KEY = "lat_progress_key"
+        const val LONG_PROGRESS_KEY = "long_progress_key"
+    }
 
     @Inject
     lateinit var getCurrentLocationUseCase: GetCurrentLocationUseCase
@@ -35,9 +41,15 @@ class UpdateLocationWorker(
             val location = getCurrentLocationUseCase()
             val notificationContent = applicationContext.getString(R.string.long_lat_format, location.long, location.lat)
 
+            setProgress(workDataOf(
+                LAT_PROGRESS_KEY to location.lat,
+                LONG_PROGRESS_KEY to location.long
+            ))
+
             setForeground(createForegroundInfo(notificationContent))
             delay(20000)
         }
+
         return Result.success()
     }
 

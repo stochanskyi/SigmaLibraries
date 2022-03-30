@@ -1,22 +1,27 @@
 package com.stochanskyi.librariesdemo.presentaiton.data.workmanager
 
+import androidx.lifecycle.LiveData
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import androidx.work.await
+import java.util.*
 import javax.inject.Inject
 
 interface JobExecutor {
-    fun execute(definition: JobDefinition)
+    fun execute(definition: JobDefinition): UUID
     suspend fun isJobRunning(tag: String): Boolean
     fun stopJob(tag: String)
+    fun observeJobState(id: UUID): LiveData<WorkInfo>
 }
 
 class JobExecutorImpl @Inject constructor(
     private val workManager: WorkManager
 ) : JobExecutor {
 
-    override fun execute(definition: JobDefinition) {
-        workManager.enqueue(definition.jobRequest)
+    override fun execute(definition: JobDefinition): UUID {
+        val request = definition.jobRequest
+        workManager.enqueue(request)
+        return request.id
     }
 
     override suspend fun isJobRunning(tag: String): Boolean {
@@ -26,5 +31,9 @@ class JobExecutorImpl @Inject constructor(
 
     override fun stopJob(tag: String) {
         workManager.cancelAllWorkByTag(tag)
+    }
+
+    override fun observeJobState(id: UUID): LiveData<WorkInfo> {
+        return workManager.getWorkInfoByIdLiveData(id)
     }
 }
