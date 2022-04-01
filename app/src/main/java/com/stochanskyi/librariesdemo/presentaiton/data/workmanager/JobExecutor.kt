@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import androidx.work.await
+import timber.log.Timber
 import java.util.*
 import javax.inject.Inject
 
@@ -21,6 +22,8 @@ class JobExecutorImpl @Inject constructor(
     override fun execute(definition: JobDefinition): UUID {
         val request = definition.jobRequest
         workManager.enqueue(request)
+
+        Timber.d("Job ${request.id} enqueued")
         return request.id
     }
 
@@ -30,6 +33,7 @@ class JobExecutorImpl @Inject constructor(
     }
 
     override fun stopJob(tag: String) {
+        Timber.d("Job with tag $tag stopped")
         workManager.cancelAllWorkByTag(tag)
     }
 

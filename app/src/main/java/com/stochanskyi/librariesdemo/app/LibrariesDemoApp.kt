@@ -5,6 +5,7 @@ import android.content.Context
 import com.stochanskyi.librariesdemo.app.di.components.AppComponent
 import com.stochanskyi.librariesdemo.app.di.components.DaggerAppComponent
 import com.stochanskyi.librariesdemo.app.di.dependencies.AppDependencies
+import timber.log.Timber
 
 class LibrariesDemoApp : Application(), AppDependencies {
 
@@ -12,6 +13,9 @@ class LibrariesDemoApp : Application(), AppDependencies {
 
     override fun onCreate() {
         super.onCreate()
+        Timber.plant(Timber.DebugTree())
+
+        Timber.d("AppStarted")
 
         appComponent = DaggerAppComponent
             .builder()
