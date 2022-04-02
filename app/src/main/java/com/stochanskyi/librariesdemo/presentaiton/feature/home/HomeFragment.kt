@@ -30,6 +30,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         workManagerButton.setOnClickListener { 
             navigateToAction(R.id.fragment_work_manager_home)
         }
+        motionLayoutButton.setOnClickListener {
+            navigateToAction(R.id.fragment_motion_layout)
+        }
     }
     
     private fun navigateToAction(@IdRes action: Int) {

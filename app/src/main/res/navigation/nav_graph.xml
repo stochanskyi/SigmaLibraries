@@ -26,6 +26,10 @@
             android:id="@+id/action_HomeFragment_to_WorkManagerHomeFragment"
             app:destination="@id/fragment_work_manager_home" />
 
+        <action
+            android:id="@+id/action_HomeFragment_to_MotionLayoutFragment"
+            app:destination="@id/fragment_motion_layout" />
+
     </fragment>
 
     <fragment
@@ -68,5 +72,10 @@
         android:id="@+id/fragment_location_update"
         android:name="com.stochanskyi.librariesdemo.presentaiton.feature.locationupdate.LocationUpdateFragment"
         tools:layout="@layout/fragment_location_update" />
+
+    <fragment
+        android:id="@+id/fragment_motion_layout"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.MotionLayoutFragment"
+        tools:layout="@layout/fragment_motion_layout" />
 
 </navigation>
