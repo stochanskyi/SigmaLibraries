@@ -29,5 +29,7 @@
     <string name="work_manager">Work Manager</string>
 
     <string name="long_lat_format">Long: %1$f Lat: %2$f</string>
+    <string name="motion_layout">Motion Layout</string>
+    <string name="android_mountains">Android Mountains</string>
 
 </resources>

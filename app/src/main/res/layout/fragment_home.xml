@@ -34,4 +34,11 @@
         android:layout_height="wrap_content"
         android:text="@string/work_manager" />
 
+    <Button
+        style="@style/Button.Home"
+        android:id="@+id/motion_layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/motion_layout" />
+
 </LinearLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+
+        <OnSwipe
+            motion:touchAnchorId="@+id/swipe_refresh"
+            motion:touchRegionId="@+id/swipe_refresh"
+            motion:maxAcceleration="40"
+            motion:dragDirection="dragUp"
+            motion:touchAnchorSide="top" />
+
+        <KeyFrameSet>
+
+            <KeyAttribute
+                motion:motionTarget="@+id/title_text"
+                motion:framePosition="90">
+
+                <CustomAttribute
+                    motion:attributeName="textSize"
+                    motion:customFloatValue="20" />
+
+            </KeyAttribute>
+
+            <KeyPosition
+                motion:motionTarget="@+id/title_text"
+                motion:framePosition="90"
+                motion:keyPositionType="pathRelative"
+                motion:percentX="1" />
+
+            <KeyAttribute
+                motion:motionTarget="@+id/title_image"
+                motion:framePosition="70"
+                android:alpha="1" />
+
+        </KeyFrameSet>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/title_image"
+            android:layout_height="250dp"
+            android:layout_width="match_parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="@id/title_image"
+            motion:layout_constraintHorizontal_bias="0">
+
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customFloatValue="30" />
+
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet
+        android:id="@+id/end"
+        motion:deriveConstraintsFrom="@id/start">
+
+        <Constraint
+            android:id="@+id/title_image"
+            android:layout_height="250dp"
+            android:layout_width="match_parent"
+            motion:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            motion:layout_constraintTop_toTopOf="@null">
+
+            <PropertySet android:visibility="invisible" />
+
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="@id/title_image"
+            motion:layout_constraintHorizontal_bias="0">
+
+            <CustomAttribute
+                motion:attributeName="textSize"
+                motion:customFloatValue="20" />
+
+        </Constraint>
+
+    </ConstraintSet>
+
+</MotionScene>
