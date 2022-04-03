@@ -27,8 +27,8 @@
             app:destination="@id/fragment_work_manager_home" />
 
         <action
-            android:id="@+id/action_HomeFragment_to_MotionLayoutFragment"
-            app:destination="@id/fragment_motion_layout" />
+            android:id="@+id/action_HomeFragment_to_MotionHomeFragment"
+            app:destination="@id/fragment_motion_home" />
 
     </fragment>
 
@@ -74,8 +74,28 @@
         tools:layout="@layout/fragment_location_update" />
 
     <fragment
-        android:id="@+id/fragment_motion_layout"
-        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.MotionLayoutFragment"
-        tools:layout="@layout/fragment_motion_layout" />
+        android:id="@+id/fragment_motion_home"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.motionhome.MotionHomeFragment"
+        tools:layout="@layout/fragment_motion_home">
+
+        <action
+            android:id="@+id/action_MotionHomeFragment_to_MotionCollapsingFragment"
+            app:destination="@id/fragment_motion_collapsing" />
+
+        <action
+            android:id="@+id/action_MotionHomeFragment_to_MusicPlayerFragment"
+            app:destination="@id/fragment_music_player" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_motion_collapsing"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.motioncollapsing.MotionCollapsingFragment"
+        tools:layout="@layout/fragment_motion_collapsing" />
+
+    <fragment
+        android:id="@+id/fragment_music_player"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.musicplayer.MusicPlayerFragment"
+        tools:layout="@layout/fragment_music_player" />
 
 </navigation>

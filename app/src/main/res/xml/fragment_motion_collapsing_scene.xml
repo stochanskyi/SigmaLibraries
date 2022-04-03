@@ -11,6 +11,7 @@
             motion:touchAnchorId="@+id/swipe_refresh"
             motion:touchRegionId="@+id/swipe_refresh"
             motion:maxAcceleration="40"
+            motion:maxVelocity="30"
             motion:dragDirection="dragUp"
             motion:touchAnchorSide="top" />
 
