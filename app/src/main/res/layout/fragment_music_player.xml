@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_music_player_scene">
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/background_card"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#3A2B1F" />
+
+    <ImageView
+        android:id="@+id/song_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/mountains"
+        android:scaleType="centerCrop" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_song_image_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="song_image"
+        app:barrierMargin="10dp" />
+
+    <TextView
+        android:id="@+id/song_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some Name"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="653dp" />
+
+    <TextView
+        android:id="@+id/author_name_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:text="James Arthur" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_collapsed_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:barrierMargin="-10dp"
+        app:constraint_referenced_ids="song_name_textView" />
+    
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_collapsed_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_collapsed_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_collapsed_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
