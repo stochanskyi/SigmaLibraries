@@ -31,7 +31,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             navigateToAction(R.id.fragment_work_manager_home)
         }
         motionLayoutButton.setOnClickListener {
-            navigateToAction(R.id.fragment_motion_layout)
+            navigateToAction(R.id.fragment_motion_home)
         }
     }
     
