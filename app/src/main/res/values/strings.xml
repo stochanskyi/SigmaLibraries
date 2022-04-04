@@ -33,5 +33,6 @@
     <string name="android_mountains">Android Mountains</string>
     <string name="collapsing_toolbar">Collapsing Toolbar</string>
     <string name="music_player">Music Player</string>
+    <string name="google_maps">Google Maps</string>
 
 </resources>

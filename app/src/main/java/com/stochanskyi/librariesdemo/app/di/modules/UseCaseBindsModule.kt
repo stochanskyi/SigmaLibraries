@@ -6,6 +6,8 @@ import com.stochanskyi.librariesdemo.domain.features.location.GetCurrentLocation
 import com.stochanskyi.librariesdemo.domain.features.location.GetCurrentLocationUseCaseImpl
 import com.stochanskyi.librariesdemo.domain.features.location.GetLastLocationUseCase
 import com.stochanskyi.librariesdemo.domain.features.location.GetLastLocationUseCaseImpl
+import com.stochanskyi.librariesdemo.domain.features.maps.GetCountriesBoundsUseCase
+import com.stochanskyi.librariesdemo.domain.features.maps.GetCountriesBoundsUseCaseImpl
 import com.stochanskyi.librariesdemo.domain.features.simplecall.SimpleCallUseCase
 import com.stochanskyi.librariesdemo.domain.features.simplecall.SimpleCallUseCaseImpl
 import dagger.Binds
@@ -25,4 +27,8 @@ interface UseCaseBindsModule {
 
     @Binds
     fun bindGetLastLocationUseCase(getLastLocationUseCase: GetLastLocationUseCaseImpl): GetLastLocationUseCase
+
+    @Binds
+    fun bindGetCountriesBoundsUseCase(countriesBoundsUseCase: GetCountriesBoundsUseCaseImpl): GetCountriesBoundsUseCase
+
 }

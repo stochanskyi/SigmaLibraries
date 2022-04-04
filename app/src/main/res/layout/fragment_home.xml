@@ -41,4 +41,11 @@
         android:layout_height="wrap_content"
         android:text="@string/motion_layout" />
 
+    <Button
+        style="@style/Button.Home"
+        android:id="@+id/google_maps_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/google_maps" />
+
 </LinearLayout>
