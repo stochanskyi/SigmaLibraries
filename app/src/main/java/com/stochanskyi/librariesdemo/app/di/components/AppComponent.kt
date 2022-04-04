@@ -5,6 +5,7 @@ import com.stochanskyi.librariesdemo.app.di.modules.AppModule
 import com.stochanskyi.librariesdemo.data.activityrecognition.ActivityUpdateReceiver
 import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.ActivityRecognitionFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.activityupdate.ActivityUpdateFragment
+import com.stochanskyi.librariesdemo.presentaiton.feature.map.MapDemoFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.ImageLoadersFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.item.ImageLoadingTestFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.locationupdate.LocationUpdateFragment
@@ -27,6 +28,7 @@ interface AppComponent {
     fun inject(receiver: ActivityUpdateReceiver)
 
     fun inject(worker: UpdateLocationWorker)
+    fun inject(fragment: MapDemoFragment)
 
     @Component.Builder
     interface Builder {

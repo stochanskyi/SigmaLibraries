@@ -30,6 +30,9 @@
             android:id="@+id/action_HomeFragment_to_MotionHomeFragment"
             app:destination="@id/fragment_motion_home" />
 
+        <action
+            android:id="@+id/action_HomeFragment_to_MapDemoFragment"
+            app:destination="@id/fragment_map_demo" />
     </fragment>
 
     <fragment
@@ -97,5 +100,10 @@
         android:id="@+id/fragment_music_player"
         android:name="com.stochanskyi.librariesdemo.presentaiton.feature.musicplayer.MusicPlayerFragment"
         tools:layout="@layout/fragment_music_player" />
+
+    <fragment
+        android:id="@+id/fragment_map_demo"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.map.MapDemoFragment"
+        tools:layout="@layout/fragment_map_demo" />
 
 </navigation>

@@ -2,6 +2,10 @@ package com.stochanskyi.librariesdemo.app.di.modules
 
 import com.stochanskyi.librariesdemo.data.repository.activityrecognition.ActivityRecognitionRepositoryImpl
 import com.stochanskyi.librariesdemo.data.repository.location.LocationRepositoryImpl
+import com.stochanskyi.librariesdemo.data.repository.maps.CountryBoundsRepository
+import com.stochanskyi.librariesdemo.data.repository.maps.CountryBoundsRepositoryImpl
+import com.stochanskyi.librariesdemo.data.repository.maps.mapper.CountryBoundsMapper
+import com.stochanskyi.librariesdemo.data.repository.maps.mapper.CountryBoundsMapperImpl
 import com.stochanskyi.librariesdemo.data.repository.simplecall.SimpleCallRepositoryImpl
 import com.stochanskyi.librariesdemo.domain.features.activityrecognition.ActivityRecognitionRepository
 import com.stochanskyi.librariesdemo.domain.features.location.LocationRepository
@@ -26,4 +30,9 @@ interface RepositoryBindsModule {
     @Binds
     fun bindLocationMapper(locationMapper: LocationMapperImpl): LocationMapper
 
+    @Binds
+    fun bindCountryBoundsRepository(repo: CountryBoundsRepositoryImpl): CountryBoundsRepository
+
+    @Binds
+    fun bindCountryBoundsMapper(mapper: CountryBoundsMapperImpl): CountryBoundsMapper
 }

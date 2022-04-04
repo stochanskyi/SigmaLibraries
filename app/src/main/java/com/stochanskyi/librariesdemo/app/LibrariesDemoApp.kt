@@ -2,6 +2,7 @@ package com.stochanskyi.librariesdemo.app
 
 import android.app.Application
 import android.content.Context
+import com.google.android.gms.maps.MapsInitializer
 import com.stochanskyi.librariesdemo.app.di.components.AppComponent
 import com.stochanskyi.librariesdemo.app.di.components.DaggerAppComponent
 import com.stochanskyi.librariesdemo.app.di.dependencies.AppDependencies
@@ -21,6 +22,8 @@ class LibrariesDemoApp : Application(), AppDependencies {
             .builder()
             .appDependencies(this)
             .build()
+
+        MapsInitializer.initialize(applicationContext, MapsInitializer.Renderer.LATEST, null)
     }
 
     override val context: Context

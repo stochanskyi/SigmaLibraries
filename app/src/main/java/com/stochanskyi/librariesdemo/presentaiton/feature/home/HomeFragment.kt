@@ -33,6 +33,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         motionLayoutButton.setOnClickListener {
             navigateToAction(R.id.fragment_motion_home)
         }
+        googleMapsButton.setOnClickListener {
+            navigateToAction(R.id.fragment_map_demo)
+        }
     }
     
     private fun navigateToAction(@IdRes action: Int) {
