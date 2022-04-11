@@ -34,5 +34,7 @@
     <string name="collapsing_toolbar">Collapsing Toolbar</string>
     <string name="music_player">Music Player</string>
     <string name="google_maps">Google Maps</string>
+    <string name="coordinator_layout">Coordinator layout</string>
+    <string name="demo_balance">3000$</string>
 
 </resources>
