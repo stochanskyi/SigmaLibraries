@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="country_map_color">#63753939</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="appbar_background">#816A3838</color>
 </resources>

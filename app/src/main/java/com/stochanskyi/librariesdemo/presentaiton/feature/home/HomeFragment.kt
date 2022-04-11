@@ -36,6 +36,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         googleMapsButton.setOnClickListener {
             navigateToAction(R.id.fragment_map_demo)
         }
+        coordinatorLayoutButton.setOnClickListener {
+            navigateToAction(R.id.fragment_coordinator_demo)
+        }
     }
     
     private fun navigateToAction(@IdRes action: Int) {

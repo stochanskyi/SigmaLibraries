@@ -33,6 +33,11 @@
         <action
             android:id="@+id/action_HomeFragment_to_MapDemoFragment"
             app:destination="@id/fragment_map_demo" />
+
+        <action
+            android:id="@+id/action_HomeFragment_to_CoordinatorDemoFragment"
+            app:destination="@id/fragment_coordinator_demo" />
+
     </fragment>
 
     <fragment
@@ -105,5 +110,10 @@
         android:id="@+id/fragment_map_demo"
         android:name="com.stochanskyi.librariesdemo.presentaiton.feature.map.MapDemoFragment"
         tools:layout="@layout/fragment_map_demo" />
+
+    <fragment
+        android:id="@+id/fragment_coordinator_demo"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.coordinatordemo.CoordinatorDemoFragment"
+        tools:layout="@layout/fragment_coordinator_demo" />
 
 </navigation>

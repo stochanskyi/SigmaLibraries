@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.stochanskyi.librariesdemo.presentaiton.views.CollapsingMotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/collapsing_motion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="90dp"
+    app:layoutDescription="@xml/layout_coordinator_demo_header_scene"
+    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/balance_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="@string/demo_balance"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="570dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_balance_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="balance_textview"
+        app:barrierMargin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="100dp" />
+
+    <LinearLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="79dp">
+
+        <Button
+            android:id="@+id/first_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/second_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/third_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+</com.stochanskyi.librariesdemo.presentaiton.views.CollapsingMotionLayout>

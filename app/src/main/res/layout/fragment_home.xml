@@ -48,4 +48,12 @@
         android:layout_height="wrap_content"
         android:text="@string/google_maps" />
 
+    <Button
+        style="@style/Button.Home"
+        android:id="@+id/coordinator_layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/coordinator_layout" />
+
+
 </LinearLayout>
