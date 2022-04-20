@@ -1,6 +1,8 @@
 package com.stochanskyi.librariesdemo.app.di.modules
 
 import com.stochanskyi.librariesdemo.data.repository.activityrecognition.ActivityRecognitionRepositoryImpl
+import com.stochanskyi.librariesdemo.data.repository.biometrics.BiometricsDemoRepository
+import com.stochanskyi.librariesdemo.data.repository.biometrics.BiometricsDemoRepositoryImpl
 import com.stochanskyi.librariesdemo.data.repository.location.LocationRepositoryImpl
 import com.stochanskyi.librariesdemo.data.repository.maps.CountryBoundsRepository
 import com.stochanskyi.librariesdemo.data.repository.maps.CountryBoundsRepositoryImpl
@@ -35,4 +37,7 @@ interface RepositoryBindsModule {
 
     @Binds
     fun bindCountryBoundsMapper(mapper: CountryBoundsMapperImpl): CountryBoundsMapper
+
+    @Binds
+    fun bindBiometricsDemoRepository(repo: BiometricsDemoRepositoryImpl): BiometricsDemoRepository
 }
