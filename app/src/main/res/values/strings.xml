@@ -37,5 +37,8 @@
     <string name="coordinator_layout">Coordinator layout</string>
     <string name="demo_balance">3000$</string>
     <string name="biometrics_demo">Biometrics demo</string>
+    <string name="data">Data</string>
+    <string name="save">Save</string>
+    <string name="restore">Restore</string>
 
 </resources>
