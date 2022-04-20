@@ -3,7 +3,6 @@ package com.stochanskyi.librariesdemo.presentaiton.feature.biometrics
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.biometric.BiometricPrompt
@@ -12,7 +11,10 @@ import androidx.fragment.app.viewModels
 import com.stochanskyi.librariesdemo.R
 import com.stochanskyi.librariesdemo.app.appComponent
 import com.stochanskyi.librariesdemo.databinding.FragmentBiometricsDemoBinding
+import com.stochanskyi.librariesdemo.presentaiton.feature.biometrics.callback.AuthenticationCipherCallback
+import com.stochanskyi.librariesdemo.presentaiton.feature.biometrics.data.CipherAuthenticationData
 import com.stochanskyi.librariesdemo.presentaiton.utils.ViewModelFactory
+import kotlinx.coroutines.CancellableContinuation
 import javax.crypto.Cipher
 import javax.inject.Inject
 
@@ -22,8 +24,6 @@ class BiometricsDemoFragment : Fragment(R.layout.fragment_biometrics_demo) {
     lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel: BiometricsDemoViewModel by viewModels { viewModelFactory }
-
-    private val biometricManager: BiometricManager by lazy { BiometricManager.from(requireContext()) }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -49,53 +49,28 @@ class BiometricsDemoFragment : Fragment(R.layout.fragment_biometrics_demo) {
 
     private fun initObservers(binding: FragmentBiometricsDemoBinding) = with(binding) {
         viewModel.restoredLiveData.observe(viewLifecycleOwner) {
-            dataEditText.setText(it)
+            restoredTextView.text = it
         }
-        viewModel.authenticateEncryptCipherLiveData.observe(viewLifecycleOwner) { cipher ->
-            showEncryptCipherBiometricPrompt(cipher)
-        }
-        viewModel.authenticateDecryptCipherLiveData.observe(viewLifecycleOwner) { cipher ->
-            showDecodeCipherBiometricPrompt(cipher)
+        viewModel.authenticateCipherLiveData.observe(viewLifecycleOwner) { data ->
+            showBiometricPrompt(data ?: return@observe)
         }
     }
 
-    private fun showEncryptCipherBiometricPrompt(cipher: Cipher) {
-        showBiometricPrompt(cipher) { authenticatedCipher ->
-            authenticatedCipher?.let { viewModel.encodeData(it) }
-        }
-    }
-
-    private fun showDecodeCipherBiometricPrompt(cipher: Cipher) {
-        showBiometricPrompt(cipher) { authenticatedCipher ->
-            authenticatedCipher?.let { viewModel.decodeData(it) }
-        }
-    }
-
-    private inline fun showBiometricPrompt(
-        cipher: Cipher,
-        crossinline successAction: (Cipher?) -> Unit
+    private fun showBiometricPrompt(
+        data: CipherAuthenticationData
     ) {
-        createBiometricPrompt(successAction)
-            .authenticate(
-                createBiometricPromptInfo("", ""),
-                BiometricPrompt.CryptoObject(cipher)
-            )
+        createBiometricPrompt(data.continuation).authenticate(
+            createBiometricPromptInfo(),
+            BiometricPrompt.CryptoObject(data.cipher)
+        )
     }
 
-    private inline fun createBiometricPrompt(crossinline successAction: (Cipher?) -> Unit): BiometricPrompt {
-        return BiometricPrompt(this, object : BiometricPrompt.AuthenticationCallback() {
-            override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
-                successAction(result.cryptoObject?.cipher)
-            }
-        })
+    private fun createBiometricPrompt(continuation: CancellableContinuation<Cipher>): BiometricPrompt {
+        return BiometricPrompt(this, AuthenticationCipherCallback(continuation))
     }
 
-    private fun createBiometricPromptInfo(
-        title: String,
-        description: String
-    ): BiometricPrompt.PromptInfo {
+    private fun createBiometricPromptInfo(): BiometricPrompt.PromptInfo {
         return BiometricPrompt.PromptInfo.Builder().apply {
-            setTitle("Authenticate to restore saved data")
             setAllowedAuthenticators(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
         }.build()
     }
