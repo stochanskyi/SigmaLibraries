@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.stochanskyi.librariesdemo.app.di.annotations.ViewModelKey
 import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.ActivityRecognitionViewModel
 import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.activityupdate.ActivityUpdateViewModel
+import com.stochanskyi.librariesdemo.presentaiton.feature.biometrics.BiometricsDemoViewModel
 import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.ImageLoadersViewModel
 import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.item.ImageLoadingTestViewModel
 import com.stochanskyi.librariesdemo.presentaiton.feature.locationupdate.LocationUpdateViewModel
@@ -37,6 +38,9 @@ interface ViewModelBindsModule {
 
     @Binds
     @[IntoMap ViewModelKey(LocationUpdateViewModel::class)]
-    fun binLocationUpdateViewModel(locationUpdateViewModel: LocationUpdateViewModel): ViewModel
+    fun bindLocationUpdateViewModel(locationUpdateViewModel: LocationUpdateViewModel): ViewModel
 
+    @Binds
+    @[IntoMap ViewModelKey(BiometricsDemoViewModel::class)]
+    fun bindBiometricsDemoViewModel(locationUpdateViewModel: BiometricsDemoViewModel): ViewModel
 }
