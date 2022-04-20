@@ -39,6 +39,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         coordinatorLayoutButton.setOnClickListener {
             navigateToAction(R.id.fragment_coordinator_demo)
         }
+        biometricsLayoutButton.setOnClickListener {
+            navigateToAction(R.id.fragment_biometrics_demo)
+        }
     }
     
     private fun navigateToAction(@IdRes action: Int) {
