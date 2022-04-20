@@ -38,6 +38,10 @@
             android:id="@+id/action_HomeFragment_to_CoordinatorDemoFragment"
             app:destination="@id/fragment_coordinator_demo" />
 
+        <action
+            android:id="@+id/action_HomeFragment_to_BiometricsDemoFragment"
+            app:destination="@id/fragment_biometrics_demo" />
+
     </fragment>
 
     <fragment
@@ -115,5 +119,10 @@
         android:id="@+id/fragment_coordinator_demo"
         android:name="com.stochanskyi.librariesdemo.presentaiton.feature.coordinatordemo.CoordinatorDemoFragment"
         tools:layout="@layout/fragment_coordinator_demo" />
+
+    <fragment
+        android:id="@+id/fragment_biometrics_demo"
+        android:name="com.stochanskyi.librariesdemo.presentaiton.feature.biometrics.BiometricsDemoFragment"
+        tools:layout="@layout/fragment_biometrics_demo" />
 
 </navigation>

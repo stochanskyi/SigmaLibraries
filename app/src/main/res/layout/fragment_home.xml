@@ -55,5 +55,12 @@
         android:layout_height="wrap_content"
         android:text="@string/coordinator_layout" />
 
+    <Button
+        style="@style/Button.Home"
+        android:id="@+id/biometrics_layout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/biometrics_demo" />
+
 
 </LinearLayout>

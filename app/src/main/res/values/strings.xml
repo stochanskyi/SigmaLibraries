@@ -36,5 +36,6 @@
     <string name="google_maps">Google Maps</string>
     <string name="coordinator_layout">Coordinator layout</string>
     <string name="demo_balance">3000$</string>
+    <string name="biometrics_demo">Biometrics demo</string>
 
 </resources>

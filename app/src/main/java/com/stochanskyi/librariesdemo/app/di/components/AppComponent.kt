@@ -5,6 +5,7 @@ import com.stochanskyi.librariesdemo.app.di.modules.AppModule
 import com.stochanskyi.librariesdemo.data.activityrecognition.ActivityUpdateReceiver
 import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.ActivityRecognitionFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.activityrecognition.activityupdate.ActivityUpdateFragment
+import com.stochanskyi.librariesdemo.presentaiton.feature.biometrics.BiometricsDemoFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.map.MapDemoFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.ImageLoadersFragment
 import com.stochanskyi.librariesdemo.presentaiton.feature.imageloading.item.ImageLoadingTestFragment
@@ -18,17 +19,21 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
 
+    // Fragments
     fun inject(fragment: SimpleCallFragment)
     fun inject(fragment: ImageLoadersFragment)
     fun inject(fragment: ImageLoadingTestFragment)
     fun inject(fragment: ActivityRecognitionFragment)
     fun inject(fragment: ActivityUpdateFragment)
     fun inject(fragment: LocationUpdateFragment)
+    fun inject(fragment: MapDemoFragment)
+    fun inject(fragment: BiometricsDemoFragment)
 
+    // Broadcast Receivers
     fun inject(receiver: ActivityUpdateReceiver)
 
+    // Workers
     fun inject(worker: UpdateLocationWorker)
-    fun inject(fragment: MapDemoFragment)
 
     @Component.Builder
     interface Builder {
