@@ -27,6 +27,18 @@ interface ActivityRecognitionDataSource {
     suspend fun stopActivityUpdates(requestId: Int): Boolean
 }
 
+/**
+ * Source of Activity Recognition Updates.
+ *
+ * This class wraps work with Android [ActivityRecognitionClient] and provides
+ * more convenient way to receive activity updates using Kotlin Coroutines [Flow].
+ *
+ * @param context application context.
+ * @param activityRecognitionClient activity recognition framework entry point.
+ *
+ * @constructor Creates the source with specified [ActivityRecognitionClient] to wrap.
+ *
+ */
 @OptIn(FlowPreview::class)
 @Singleton
 class ActivityRecognitionDataSourceImpl @Inject constructor(
@@ -50,6 +62,21 @@ class ActivityRecognitionDataSourceImpl @Inject constructor(
         controlActivityUpdatesWithActiveSubscriber()
     }
 
+    /**
+     * Registers activity updates observer with events in specified interval.
+     *
+     * If observer with lower interval is already registered, the throttle will be used.
+     * Otherwise restarts observing with new interval.
+     *
+     * Registering interval does not guarantee that events will be emitted strictly in this time,
+     * but it it is a minimal interval between events
+     *
+     * @param interval minimal interval of events in milliseconds
+     * @return Success [Result] with [ActivityUpdatesRequestData] with generated id and flow,
+     *         if launch performed successfully
+     *         otherwise Failure [Result]
+     *
+     */
     override suspend fun getActivityUpdates(
         interval: Long
     ): Result<ActivityUpdatesRequestData> = mutex.withLock {
@@ -73,6 +100,19 @@ class ActivityRecognitionDataSourceImpl @Inject constructor(
         )
     }
 
+    /**
+     * Unregisters activity updates observer with specified id.
+     *
+     * If there is no observer with lower or equal interval already registered
+     * except with specified id, activity update request is restarted with new lowest interval
+     * among registered observers.
+     * Otherwise just removes observer with id from registered observers list.
+     *
+     * @param requestId id of request to be unregistered
+     *
+     * @return true if unregistering completed, false otherwise
+     *
+     */
     override suspend fun stopActivityUpdates(requestId: Int): Boolean = mutex.withLock {
         val requestInterval = requestsIntervals[requestId] ?: return false
         removeRequestWith(requestId)
