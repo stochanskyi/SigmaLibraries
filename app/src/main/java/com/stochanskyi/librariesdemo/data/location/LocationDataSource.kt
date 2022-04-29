@@ -1,6 +1,5 @@
 package com.stochanskyi.librariesdemo.data.location
 
-import android.annotation.SuppressLint
 import android.location.Location
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.tasks.CancellationTokenSource
@@ -14,7 +13,6 @@ interface LocationDataSource {
 
 }
 
-@SuppressLint("MissingPermission")
 class LocationDataSourceImpl(
     private val locationClient: FusedLocationProviderClient,
     private val priority: Int
