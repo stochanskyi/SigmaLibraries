@@ -54,11 +54,10 @@ jobs:
             app/build/reports/tests/testDebugUnitTest/
             app/build/reports/tests/testReleaseUnitTest/
 
-  Instrumented-tests:
-    name: Android tests running
+  Build-apks:
+    name: Build APKs for Instrumented tests
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -68,9 +67,42 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Run Android tests
-        uses: reactivecircus/android-emulator-runner@v2
+      - name: Assemble app
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Upload app apk
+        uses: actions/upload-artifact@v3
         with:
-          api-level: 29
-          arch: x86_64
-          script: ./gradlew connectedCheck
+          name: App apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Assemble tests
+        run: ./gradlew assembleDebugAndroidTest --stacktrace
+
+      - name: Upload tests apk
+        uses: actions/upload-artifact@v3
+        with:
+          name: Tests apk
+          path: app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+
+
+#  Instrumented-tests:
+#    name: Android tests running
+#    runs-on: ubuntu-latest
+#    steps:
+#
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#
+#      - name: Set up JDK 11
+#        uses: actions/setup-java@v3
+#        with:
+#          java-version: '11'
+#          distribution: 'adopt'
+#
+#      - name: Run Android tests
+#        uses: reactivecircus/android-emulator-runner@v2
+#        with:
+#          api-level: 29
+#          arch: x86_64
+#          script: ./gradlew connectedCheck
