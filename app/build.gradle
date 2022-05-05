@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
     id 'org.jetbrains.dokka'
 }
 
@@ -20,9 +19,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            manifestPlaceholders = [ google_map_key:"AIzaSyBmLEEq5mj7ucd5SBEKcS92R9R3VZJUr5w"]
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [ google_map_key:System.getenv("GOOGLE_MAPS_API") ?: "" ]
         }
     }
 
