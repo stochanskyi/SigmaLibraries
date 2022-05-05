@@ -23,6 +23,12 @@ jobs:
       - name: Lint running
         run: ./gradlew lintDebug
 
+      - name: Upload Lint results
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: app/build/reports/lint-results-debug.html
+
   Unit-tests:
     name: Unit tests running
     runs-on: ubuntu-latest
