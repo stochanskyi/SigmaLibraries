@@ -61,6 +61,7 @@ jobs:
   google-cloud-setup:
     name: Google Cloud setup
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Sign in Google Cloud
         uses: 'google-github-actions/auth@v0'
