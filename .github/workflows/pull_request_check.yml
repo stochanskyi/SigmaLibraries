@@ -67,14 +67,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Sign in Google Cloud
-        uses: google-github-actions/auth@v0
-        with:
-          credentials_json: ${{ secrets.GOOGLE_CLOUD_KEY }}
-
-      - name: Set current project
-        run: gcloud config set project ${{ secrets.FIREBASE_PROJECT_ID }}
-
       - name: Download app APK
         uses: actions/download-artifact@v1
         with:
@@ -84,8 +76,15 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: app-debug-androidTest
-      - name: Checkout
-        uses: actions/checkout@v3
+
+      - name: Sign in Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GOOGLE_CLOUD_KEY }}
+          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
 
       - name: Run tests
         run: gcloud firebase test android run --type instrumentation --app app-debug/app-debug.apk --test app-debug-androidTest/app-debug-androidTest.apk --device model=Pixel3,version=30,locale=en,orientation=portrait
