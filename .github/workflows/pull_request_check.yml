@@ -63,6 +63,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Sign in Google Cloud
         uses: 'google-github-actions/auth@v0'
         with:
