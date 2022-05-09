@@ -20,12 +20,12 @@ android {
 
     buildTypes {
         debug {
-            manifestPlaceholders = [ google_map_key:"AIzaSyBmLEEq5mj7ucd5SBEKcS92R9R3VZJUr5w"]
+            manifestPlaceholders = [ google_map_key:"AIzaSyBmLEEq5mj7ucd5SBEKcS92R9R3VZJUr5w" ]
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            manifestPlaceholders = [ google_map_key:System.getenv("GOOGLE_MAPS_API") ?: "" ]
+            manifestPlaceholders = [ google_map_key:project.hasProperty('maps_api_key_release') ? project.property('maps_api_key_release') : "" ]
         }
     }
 
@@ -97,5 +97,4 @@ dependencies {
     // Image loading
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'io.coil-kt:coil:1.4.0'
-
 }
