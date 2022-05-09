@@ -24,7 +24,7 @@ platform :android do
         }
     )
     firebase_app_distribution(
-        service_credentials_file: ENV['FIREBASE_DISTRIBUTION_CREDENTIALS'],
+        firebase_cli_token: ENV['FIREBASE_CLI_TOKEN'],
         app: ENV['FIREBASE_APP_ID'],
         groups: "test-group"
     )

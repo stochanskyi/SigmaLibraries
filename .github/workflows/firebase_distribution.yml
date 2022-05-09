@@ -77,12 +77,19 @@ jobs:
       - name: Install Dependencies
         run: bundle install
 
+      - name: Decode firebase credentials
+        run: |
+          echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
+          base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
+        env:
+          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+
       - name: Build and distribute
         run: fastlane android beta
         env:
           GOOGLE_MAPS_API: ${{ secrets.GOOGLE_MAPS_API }}
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-          FIREBASE_DISTRIBUTION_CREDENTIALS: ${{ secrets.FIREBASE_DISTRIBUTION_CREDENTIALS }}
+          FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
           SIGNING_KEY_ALLIAS: ${{ secrets.SIGNING_KEY_ALLIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
