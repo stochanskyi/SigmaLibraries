@@ -1,0 +1,12 @@
+name: Firebase distribute
+
+on: workflow_dispatch
+
+jobs:
+
+  build:
+    name: Build apkasfd
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
