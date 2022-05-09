@@ -39,3 +39,4 @@ Thumbs.db
 /.idea/deploymentTargetDropDown.xml
 /build
 /.idea/assetWizardSettings.xml
+/app/release/*
