@@ -39,6 +39,21 @@ jobs:
             app/build/reports/tests/testDebugUnitTest/
             app/build/reports/tests/testReleaseUnitTest/
 
+  create-doc:
+    name: Generate code documentation
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Generate documentation
+        run: ./gradlew dokkaHtml
+
+      - name: Upload documentation
+        uses: actions/upload-artifact@v3
+        with:
+          name: Documentation
+          path: app/build/dokka/html/
+
   distribute:
     name: Distribute to Firebase
     runs-on: ubuntu-latest
