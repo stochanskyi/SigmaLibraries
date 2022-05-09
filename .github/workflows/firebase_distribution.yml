@@ -10,3 +10,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Ruby setup
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+
+      - name: Install Dependencies
+        run: bundle install
+
+      - name: Lint check
+        run: fastlane lint
+
+      - name: Upload Lint report
+        uses: actions/upload-artifact@v3
+        with:
+          name: Lint report
+          path: app/build/reports/lint-results-debug.html
+
+      - name: Run Unit tests
+        run: fastlane tests
+
+      - name: Upload Unit tests report
+        uses: actions/upload-artifact@v3
+        with:
+          name: Unit tests reports
+          path: |
+            app/build/reports/tests/testDebugUnitTest/
+            app/build/reports/tests/testReleaseUnitTest/
