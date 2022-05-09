@@ -18,6 +18,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file('keystores/upload_keystore.jks')
+            storePassword System.getenv('SIGNING_STORE_PASSWORD')
+            keyAlias System.getenv('SIGNING_KEY_ALLIAS')
+            keyPassword System.getenv('SIGNING_KEY_PASSWORD')
+        }
+    }
+
     buildTypes {
         debug {
             manifestPlaceholders = [ google_map_key:"AIzaSyBmLEEq5mj7ucd5SBEKcS92R9R3VZJUr5w" ]
@@ -26,6 +35,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             manifestPlaceholders = [ google_map_key:project.hasProperty('maps_api_key_release') ? project.property('maps_api_key_release') : "" ]
+            signingConfig signingConfigs.release
         }
     }
 
