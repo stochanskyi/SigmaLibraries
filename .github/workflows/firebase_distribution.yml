@@ -42,6 +42,7 @@ jobs:
   distribute:
     name: Distribute to Firebase
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
 
