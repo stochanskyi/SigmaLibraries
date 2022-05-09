@@ -38,3 +38,23 @@ jobs:
           path: |
             app/build/reports/tests/testDebugUnitTest/
             app/build/reports/tests/testReleaseUnitTest/
+
+  distribute:
+    name: Distribute to Firebase
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Ruby setup
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+
+      - name: Install Dependencies
+        run: bundle install
+
+      - name: Build and distribute
+        run: fastlane android beta

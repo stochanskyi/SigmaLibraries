@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sigma-libraries",
+  "private_key_id": "8b9e61b48052e786b488797aefd1a51cfb438aff",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCsHoqUfNADNmmZ\nsBatVpgjXveuwSsbisQzxUWaAG2iiISNga/JwY/k6FKYvMRbTH+gdS/THT4r38Gz\n2foptFyh1p+at95s3jlzLDLRw524yALdm1Xp5tjlspMJY7fQyIun0pCJIH/qyi0c\nmalKC6CdmLwXyq43dx1owFQeGbn9GTebeXMy6mE59I6EQzKz496Ua/ZR6fhXtaGR\n7pTbpLawsEXq8ppo38Wb8Gzlt+pHF7qvWv3t0SQYXiJnANn7mmN9dkRXHZeUsi/R\nVO96uqXbce1FhUReNvJsNgRJIvotYiCv2/2t+NKLrTqx0SrzhyNVT7MEAZyRXJgm\nUgOW+RhBAgMBAAECggEABDdWrQ+klQIXDZmqim+dwIsBaqBA8BKep1ZrU9bwUddy\nra5jr3JCD1x3ADunGSroV4qe6Zoi79f8RmbU17jlUlBMh/GY4cBaVnCkukEDSnoZ\nQtGxE0ftF5k6qDOytLAlxOQ4Siiul8xl7/hBh8Xb4QqCix7dQGFOewMmBZ0NnIoM\nQpzbQthXUO0CM2Tgvq8sVpx/tbtriU4jIGtuSgxrhjAoi+PEesyxMBBaIHVGFeAx\nNLELZpIZn+RzGqVXsKrl9Y2rOOdiW0RqGKJ5/mIHpJCN9IqlzdGPUNuEQ0K2h1pv\nDVuK9uS4iPrShsAPuyPdaBy7Ohcc/s64MPS6qCiZiQKBgQDTvgzFA71rJKPLsIlm\n1J+P7AMs9VzCTQBoewBV+vGQg8fw6wqGlVbAXmXMe/vVedAijbcSv4OvTg0AiXOx\nupAGkkJjkCaA8mhA+5bEXgGVDBKZ6/8FS/oD1Z7F7WuZFLHAMmfa2cBqfxQnaSKW\n0lCZQk/az+QI2T1lh8dUhTABpwKBgQDQGFUZhs99NU7JCm0uQZxrrmcS1GPIbrgk\nWrCc1/nAShkpiJfu/eZ8WWmC7O1g3A6m+u0KJRU1oGhjudxZb08Z/SwiM2fFlsj8\nP1Fp8EmFH+mkN3h6Lv4oKgFNW7qEq/cMLLyVHvee2iiOFvgsuOuWaljubmRS57iy\nDvGTSB9D1wKBgEgm7rsDtzwXVClIksmTknu8dKiRQ3aCPq1bnJWv2TjhbvRNY1zQ\n7qrGf/HaHcp0o9PibovY7sqB0jRooh/h7soOdMjwie5Oq+/Yy1tGnUtovb3tiQ0J\nArzjwiK38H5NavSPOIx+vu6LNxbm4H58VDKlQgjR5maNgDpktiu65szpAoGAEnx2\n4uOk/xyDOTzh4iAWA0LlCTkw/BdJ6IDd+7D8EOcEQTpPNP39QcK3qtfdZqNl8dOM\nxz/wGGl9nI5gUtmej1J8XzVt3JG+nRoK43xjK55gJSSAYWpXTb4di3/AnBSix8QZ\npK2xlb0PqT/FIEP1OdGMwPGxm+PV9ot5TnozvNUCgYBd5hk9P1MfP6ckvcVaU92F\nE84Jls814bGV2X8Skrds0MuIZ/2pufS3HM7LH2m7XK1/0dgtJRLRccPDCJfJhKvf\nQgtxpy/YOHkpJ6UDLsEOukfgQRyzppt8DSXe3l5t6CZJLLaWY9d4VbsFsUUB2IWl\n4spkH2kckUJoXilVBogJww==\n-----END PRIVATE KEY-----\n",
+  "client_email": "fastlane-distribution@sigma-libraries.iam.gserviceaccount.com",
+  "client_id": "106885506566567041852",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fastlane-distribution%40sigma-libraries.iam.gserviceaccount.com"
+}

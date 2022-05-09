@@ -27,16 +27,21 @@ platform :android do
     gradle(task: "test")
   end
 
-#   desc "Firebase app distribution"
-#   lane :beta do
-#     gradle(
-#         task: 'assemble',
-#         build_type: 'Release',
-#         properties: {
-#             "maps_api_key_release" => ENV['GOOGLE_MAPS_API']
-#         }
-#       )
-#    end
+  desc "Distribute to Firebase"
+  lane :beta do
+    gradle(task: "clean")
+    gradle(
+        task: 'assemble',
+        build_type: 'Release',
+        properties: {
+            "maps_api_key_release" => ENV['GOOGLE_MAPS_API']
+        }
+    )
+    firebase_app_distribution(
+        service_credentials_file: "distribution_creds.json",
+        app: "1:584345545053:android:c80f3617a7a6f5396d20b4",
+    )
+   end
 
 #   desc "Submit a new Beta Build to Crashlytics Beta"
 #   lane :beta do
@@ -53,3 +58,5 @@ platform :android do
 #     upload_to_play_store
 #   end
 end
+
+#
