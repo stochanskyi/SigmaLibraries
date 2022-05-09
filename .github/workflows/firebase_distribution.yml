@@ -76,7 +76,9 @@ jobs:
       - name: Build and distribute
         run: fastlane android beta
         env:
+          GOOGLE_MAPS_API: ${{ secrets.GOOGLE_MAPS_API }}
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+          FIREBASE_DISTRIBUTION_CREDENTIALS: ${{ secrets.FIREBASE_DISTRIBUTION_CREDENTIALS }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
           SIGNING_KEY_ALLIAS: ${{ secrets.SIGNING_KEY_ALLIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-          GOOGLE_MAPS_API: ${{ secrets.GOOGLE_MAPS_API }}

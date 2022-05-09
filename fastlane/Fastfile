@@ -24,8 +24,8 @@ platform :android do
         }
     )
     firebase_app_distribution(
-        service_credentials_file: "distribution_creds.json",
-        app: "1:584345545053:android:c80f3617a7a6f5396d20b4",
+        service_credentials_file: ENV['FIREBASE_DISTRIBUTION_CREDENTIALS'],
+        app: ENV['FIREBASE_APP_ID'],
         groups: "test-group"
     )
    end
