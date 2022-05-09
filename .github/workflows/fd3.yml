@@ -1,0 +1,39 @@
+name: Firebase distribute
+
+on:
+  pull_request:
+    branches:
+      - 'dev'
+jobs:
+
+  build:
+    name: Build apk
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Lint check
+        run: fastlane lint
+
+      - name: Upload Lint report
+        uses: actions/upload-artifact@v3
+        with:
+          name: Lint report
+          path: app/build/reports/lint-results-debug.html
+
+      - name: Run Unit tests
+        run: fastlane tests
+
+      - name: Upload Unit tests report
+        uses: actions/upload-artifact@v3
+        with:
+          name: Unit tests reports
+          path: |
+            app/build/reports/tests/testDebugUnitTest/
+            app/build/reports/tests/testReleaseUnitTest/
