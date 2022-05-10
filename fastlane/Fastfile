@@ -5,7 +5,7 @@ platform :android do
 
   desc "Lint check"
   lane :lint do
-    gradle(task: "lintDebug")
+    gradle(task: "lint")
   end
 
   desc "Runs Unit tests"
