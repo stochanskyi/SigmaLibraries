@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
 
-  build:
+  check:
     name: Lint and tests check
     runs-on: ubuntu-latest
     steps:
@@ -42,7 +42,7 @@ jobs:
   create-doc:
     name: Generate code documentation
     runs-on: ubuntu-latest
-    needs: build
+    needs: check
 
     steps:
 
@@ -62,7 +62,7 @@ jobs:
     name: Distribute to Firebase
     runs-on: ubuntu-latest
     environment: prod
-    needs: build
+    needs: check
 
     steps:
 
