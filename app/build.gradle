@@ -54,6 +54,7 @@ android {
     lint {
         warning("MissingPermission")
     }
+    namespace 'com.stochanskyi.librariesdemo'
 }
 
 dependencies {
