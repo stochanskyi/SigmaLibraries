@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "584345545053",
+    "project_id": "sigma-libraries",
+    "storage_bucket": "sigma-libraries.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584345545053:android:c80f3617a7a6f5396d20b4",
+        "android_client_info": {
+          "package_name": "com.stochanskyi.librariesdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584345545053-7fuvg2u7c020fd7b9e7aoi4c9f57cv8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcizYOWJVjZ_2OpTxJTq3q3ocpH0Q6-z4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584345545053-7fuvg2u7c020fd7b9e7aoi4c9f57cv8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

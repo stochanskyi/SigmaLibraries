@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'org.jetbrains.dokka'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -105,6 +107,11 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
 
     implementation "androidx.biometric:biometric-ktx:1.2.0-alpha04"
+
+    implementation platform('com.google.firebase:firebase-bom:30.0.0')
+
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     // Image loading
     implementation 'com.github.bumptech.glide:glide:4.12.0'
